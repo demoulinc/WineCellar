@@ -7,8 +7,10 @@ var bodyParser = require('body-parser');
 var sequelize = require('./public/javascripts/database');
 var index = require('./routes/index');
 var wines = require('./routes/wines');
-
+var Wine = require('./public/javascripts/wine');
 var app = express();
+
+var firstWine = new Wine();
 
 sequelize.authenticate()
   .then(function(err) {
