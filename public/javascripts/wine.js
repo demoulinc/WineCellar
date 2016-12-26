@@ -7,5 +7,3 @@ module.exports = class Wine  {
     }
 }
 
-
-//module.exports.Wine = Wine;
