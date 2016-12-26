@@ -3,3 +3,12 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  
+  table
+  tr
+    td(style='width: '+(100/2)+'%') 
+    a(class='button', href='wines') wines list
+  tr
+    td(style='width: '+(100/2)+'%') 
+    a(class='button', href='/wines/add') add a new one
+    

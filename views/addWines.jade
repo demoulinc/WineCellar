@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  form(method='post')
+                | Enter the new wine
+                div
+                    | Label  
+                    input(type='text', name='Label')
+                div
+                    | Region  
+                    input(type='text', name='Region')
+                    
+                div
+                    input(type="submit", value="Insert")
