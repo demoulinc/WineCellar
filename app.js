@@ -10,8 +10,9 @@ var wines = require('./routes/wines');
 var addWines = require('./routes/addWines');
 var app = express();
 
-var database = new database();
-database.authenticate();
+app.database = new database();
+app.database.initialize();
+app.database.authenticate();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
