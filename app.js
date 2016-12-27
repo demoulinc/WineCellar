@@ -4,19 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var sequelize = require('./public/javascripts/database');
+var database = require('./public/javascripts/database');
 var index = require('./routes/index');
 var wines = require('./routes/wines');
 var addWines = require('./routes/addWines');
 var app = express();
 
-sequelize.authenticate()
-  .then(function(err) {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(function (err) {
-    console.log('Unable to connect to the database:', err);
-  });
+var database = new database();
+database.authenticate();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
