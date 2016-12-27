@@ -3,7 +3,7 @@
 module.exports = class Wine  {
     constructor() {
         this.label = "";
-        this.region ="";
+        this.appelltion ="";
     }
 }
 
