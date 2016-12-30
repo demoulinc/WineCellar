@@ -12,8 +12,8 @@ block content
                     input(type='text', name='Appellation')
                 div
                     each item in cols
-                        input(type='radio', name='colors', value='#{item}')
-                        | #{item}
+                        input(type='radio', name='colors', value='#{item.name}')
+                        | #{item.toString()}
                         br    
                 div
                     input(type="submit", value="Insert")

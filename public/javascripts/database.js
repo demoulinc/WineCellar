@@ -28,6 +28,9 @@ module.exports = class Database {
       },
       appellation: {
         type: Sequelize.STRING
+      },
+      color: {
+        type: Sequelize.STRING
       }
       }, {
         freezeTableName: true // Model tableName will be the same as the model name
@@ -54,7 +57,8 @@ module.exports = class Database {
       // Table created
       return this.wine.create({
         label: wine.label,
-        appellation: wine.appellation
+        appellation: wine.appellation,
+        color: wine.color
       });
 //});
 
