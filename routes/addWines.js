@@ -11,12 +11,14 @@ router.post('/', function(req, res) {
     
     var label = req.body.Label;
     var appellation = req.body.Appellation;
-    console.log(label + appellation);
+    
     var wine = new Wine();
     wine.label = label;
     wine.appellation = appellation;
+
     var app = require('../app');
     app.database.addWine(wine);
+    
     res.redirect('../');
 });
 
