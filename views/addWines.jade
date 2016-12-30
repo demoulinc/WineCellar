@@ -10,6 +10,10 @@ block content
                 div
                     | Appellation  
                     input(type='text', name='Appellation')
-                    
+                div
+                    each item in cols
+                        input(type='radio', name='colors', value='#{item}')
+                        | #{item}
+                        br    
                 div
                     input(type="submit", value="Insert")
