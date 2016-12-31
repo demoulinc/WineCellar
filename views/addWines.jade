@@ -10,10 +10,22 @@ block content
                 div
                     | Appellation  
                     input(type='text', name='Appellation')
+                 div
+                    | Region  
+                    input(type='text', name='Region')
                 div
                     each item in cols
-                        input(type='radio', name='colors', value='#{item.name}')
+                        input(type='radio', name='Colors', value='#{item.name}')
                         | #{item.toString()}  
-                           
+                div
+                    | NumberOfBottles  
+                    input(type='text', name='NumberOfBottles')
+                div
+                    | Grape Varieties  
+                    input(type='text', name='GrapeVarieties')
+                div
+                    | Dealer  
+                    input(type='text', name='Dealer')
+                          
                 div
                     input(type="submit", value="Insert")

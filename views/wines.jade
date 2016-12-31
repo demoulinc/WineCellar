@@ -7,13 +7,21 @@ block content
         tr 
             th Label
             th Appellation
+            th Region
             th Color
+            th Dealer
+            th Grape Varieties
+            th Number of Bottles
     tbody
         each item in wines
             tr 
                 td #{item.label}
                 td #{item.appellation}
+                td #{item.region}
                 td #{item.color}
+                td #{item.dealer}
+                td #{item.grapeVarieties}
+                td #{item.numberOfBottles}
                 
     p 
     button(onclick="move()") New

@@ -29,7 +29,19 @@ module.exports = class Database {
       appellation: {
         type: Sequelize.STRING
       },
+      region: {
+        type: Sequelize.STRING
+      },
       color: {
+        type: Sequelize.STRING
+      },
+      numberOfBottles: {
+        type: Sequelize.INTEGER
+      },
+      dealer: {
+        type: Sequelize.STRING
+      },
+      grapeVarieties: {
         type: Sequelize.STRING
       }
       }, {
@@ -56,7 +68,11 @@ module.exports = class Database {
       return this.wine.create({
         label: wine.label,
         appellation: wine.appellation,
-        color: wine.color
+        region: wine.region,
+        color: wine.color,
+        numberOfBottles: wine.numberOfBottles,
+        grapeVarieties: wine.grapeVarieties,
+        dealer: wine.dealer
       });
   }
 
@@ -68,11 +84,16 @@ module.exports = class Database {
         var fLen = winesDb.length;
      
         for (var i = 0; i < fLen; i++) {
-           var wine = new Wine();
-          wine.label = winesDb[i].label;
-          wine.appellation = winesDb[i].appellation;
-          wine.color = winesDb[i].color;
-          Wines.push(wine);
+            var wine = new Wine();
+            wine.label = winesDb[i].label;
+            wine.appellation = winesDb[i].appellation;
+            wine.color = winesDb[i].color;
+            wine.region = winesDb[i].region;
+            wine.grapeVarieties = winesDb[i].grapeVarieties;
+            wine.numberOfBottles = winesDb[i].numberOfBottles;
+            wine.dealer = winesDb[i].dealer;
+            
+            Wines.push(wine);
         };
       
         return Wines;
