@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  p #{title}
+  table(border='1')
+    thead 
+        tr 
+            th Label
+            th Appellation
+            th Color
+    tbody
+        each item in wines
+            tr 
+                td #{item.label}
+                td #{item.appellation}
+                td #{item.color}
+                
+    p 
+    button(onclick="move()") New
+  script.
+    function move() {
+        window.location.href = '/wines/addwines';
+    };

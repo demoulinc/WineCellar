@@ -3,7 +3,13 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Get wine information');
+   var app = require('../app');
+   app.database.getWines()
+      .then(function(wines) {
+          res.render('wines', { title: 'wine list', wines: wines });
+      });
+   
+   
 });
 
 module.exports = router;

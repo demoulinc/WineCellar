@@ -53,16 +53,35 @@ module.exports = class Database {
   }
 
   addWine(wine) {
-      //this.wine.sync({force: true}).then(function () {
-      // Table created
       return this.wine.create({
         label: wine.label,
         appellation: wine.appellation,
         color: wine.color
       });
-//});
-
   }
+
+  getWines() {
+    return this.wine.findAll()
+      .then(function(winesDb) {
+        var Wines = new Array();
+        
+        var fLen = winesDb.length;
+     
+        for (var i = 0; i < fLen; i++) {
+           var wine = new Wine();
+          wine.label = winesDb[i].label;
+          wine.appellation = winesDb[i].appellation;
+          wine.color = winesDb[i].color;
+          Wines.push(wine);
+        };
+      
+        return Wines;
+
+      });
+
+  };
+
+  
 }
 
 
