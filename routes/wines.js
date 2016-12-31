@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
    var app = require('../app');
    app.database.getWines()
       .then(function(wines) {
-          res.render('wines', { title: 'wine list', wines: wines });
+          res.render('wines', { title: 'Wines list', wines: wines });
       });
    
    
