@@ -10,13 +10,11 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res) {
     
-    var label = req.body.Label;
-    var appellation = req.body.Appellation;
-    var color = req.body.colors;
     var wine = new Wine();
-    wine.label = label;
-    wine.appellation = appellation;
-    wine.color = color;
+    wine.label = req.body.Label;
+    wine.appellation = req.body.Appellation;
+    wine.color = req.body.colors;
+    
     var app = require('../app');
     app.database.addWine(wine);
 
