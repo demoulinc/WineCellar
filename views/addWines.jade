@@ -10,9 +10,12 @@ block content
                 div
                     | Appellation  
                     input(type='text', name='Appellation')
-                 div
+                div
                     | Region  
                     input(type='text', name='Region')
+                div
+                    | Country  
+                    input(type='text', name='Country')
                 div
                     each item in cols
                         input(type='radio', name='Colors', value='#{item.name}')

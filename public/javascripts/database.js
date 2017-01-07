@@ -32,6 +32,9 @@ module.exports = class Database {
       region: {
         type: Sequelize.STRING
       },
+      country: {
+        type: Sequelize.STRING
+      },
       color: {
         type: Sequelize.STRING
       },
@@ -69,6 +72,7 @@ module.exports = class Database {
         label: wine.label,
         appellation: wine.appellation,
         region: wine.region,
+        country: wine.country,
         color: wine.color,
         numberOfBottles: wine.numberOfBottles,
         grapeVarieties: wine.grapeVarieties,
@@ -89,6 +93,7 @@ module.exports = class Database {
             wine.appellation = winesDb[i].appellation;
             wine.color = winesDb[i].color;
             wine.region = winesDb[i].region;
+            wine.country = winesDb[i].country;
             wine.grapeVarieties = winesDb[i].grapeVarieties;
             wine.numberOfBottles = winesDb[i].numberOfBottles;
             wine.dealer = winesDb[i].dealer;
