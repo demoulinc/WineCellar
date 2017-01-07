@@ -25,9 +25,9 @@ block content
                 td #{item.grapeVarieties}
                 td #{item.numberOfBottles}
                 
-    p 
-    button(onclick="move()") New
+  p 
+  button(onclick="addNewWine()") New
   script.
-    function move() {
+    function addNewWine() {
         window.location.href = '/wines/add';
     };
