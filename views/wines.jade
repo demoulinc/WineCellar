@@ -18,7 +18,7 @@ block content
             th Number of Bottles
     tbody
         each item in wines
-            tr(onclick="onWineClick()")
+            tr(onclick="onWineClick()" onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" )
                 td #{item.label}
                 td #{item.appellation}
                 td #{item.region}
@@ -41,3 +41,15 @@ block content
     function onWineClick(item) {
         window.location.href = '/wines/add';
     };
+
+    var TableBackgroundNormalColor = "#ffffff";
+    var TableBackgroundMouseoverColor = "#9999ff";
+
+    // These two functions need no customization.
+    function ChangeBackgroundColor(row) {
+        row.style.backgroundColor = TableBackgroundMouseoverColor;
+    }
+
+    function RestoreBackgroundColor(row) {
+        row.style.backgroundColor = TableBackgroundNormalColor;
+    }
