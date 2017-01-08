@@ -1,6 +1,8 @@
 extends layout
 
 block content
+ div id="result"    
+    
   p #{title}
   table(border='1')
     thead 
@@ -15,7 +17,7 @@ block content
             th Number of Bottles
     tbody
         each item in wines
-            tr 
+            tr(onclick="onWineClick()")
                 td #{item.label}
                 td #{item.appellation}
                 td #{item.region}
@@ -24,10 +26,16 @@ block content
                 td #{item.dealer}
                 td #{item.grapeVarieties}
                 td #{item.numberOfBottles}
+                td 
+                 span(style='cursor: pointer;', onclick='onWineClick('+item.label+')')= "UPDATE"
+
                 
   p 
   button(onclick="addNewWine()") New
   script.
     function addNewWine() {
+        window.location.href = '/wines/add';
+    };
+    function onWineClick(item) {
         window.location.href = '/wines/add';
     };
