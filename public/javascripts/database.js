@@ -26,6 +26,10 @@ module.exports = class Database {
     });
 
     this.wine = this.sequelize.define('wine', {
+      id: {
+        primaryKey: true,
+        type: Sequelize.STRING
+      },
       label: {
         type: Sequelize.STRING
       },
@@ -75,6 +79,7 @@ module.exports = class Database {
 
   addWine(wine) {
       return this.wine.create({
+        id: wine.id,
         label: wine.label,
         appellation: wine.appellation,
         region: wine.region,
@@ -96,6 +101,7 @@ module.exports = class Database {
      
         for (var i = 0; i < fLen; i++) {
             var wine = new Wine();
+            wine.id = winesDb[i].id,
             wine.label = winesDb[i].label;
             wine.appellation = winesDb[i].appellation;
             wine.color = winesDb[i].color;

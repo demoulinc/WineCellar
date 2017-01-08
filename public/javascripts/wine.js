@@ -1,7 +1,9 @@
 "use strict";
+var Guid = require('Guid');
 
 module.exports = class Wine  {
     constructor() {
+        this.id = Guid.raw();
         this.label = "";
         this.appellation ="";
         this.color ="";
