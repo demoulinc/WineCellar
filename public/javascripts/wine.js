@@ -5,6 +5,7 @@ module.exports = class Wine  {
         this.label = "";
         this.appellation ="";
         this.color ="";
+        this.year = null;
         this.region ="";
         this.country ="";
         this.dealer ="";

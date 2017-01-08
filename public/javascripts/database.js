@@ -4,7 +4,9 @@ var Sequelize = require('Sequelize');
 var Wine = require ('./wine');
 
 module.exports = class Database {
-  constructor(){}
+  constructor(){
+    this.storagePath =  __dirname + '\\..\\db\\wineCellarDB.sqlite';
+  }
   
   initialize()
   {
@@ -18,8 +20,9 @@ module.exports = class Database {
         idle: 10000
       },
 
-      storage: 'C:\Users\Cédric\Documents\Coding\WineCellar\WineCellar\db\database2.sqlite'
-
+     
+      //storage: 'C:\Users\Cédric\Documents\Coding\WineCellar\WineCellar\db\database2.sqlite'
+      storage: this.storagePath
     });
 
     this.wine = this.sequelize.define('wine', {
@@ -37,6 +40,9 @@ module.exports = class Database {
       },
       color: {
         type: Sequelize.STRING
+      },
+      year: {
+        type: Sequelize.INTEGER
       },
       numberOfBottles: {
         type: Sequelize.INTEGER
@@ -74,6 +80,7 @@ module.exports = class Database {
         region: wine.region,
         country: wine.country,
         color: wine.color,
+        year: wine.year,
         numberOfBottles: wine.numberOfBottles,
         grapeVarieties: wine.grapeVarieties,
         dealer: wine.dealer
@@ -92,6 +99,7 @@ module.exports = class Database {
             wine.label = winesDb[i].label;
             wine.appellation = winesDb[i].appellation;
             wine.color = winesDb[i].color;
+            wine.year = winesDb[i].year;
             wine.region = winesDb[i].region;
             wine.country = winesDb[i].country;
             wine.grapeVarieties = winesDb[i].grapeVarieties;

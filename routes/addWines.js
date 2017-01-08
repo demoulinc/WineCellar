@@ -14,6 +14,7 @@ router.post('/', function(req, res) {
     wine.label = req.body.Label;
     wine.appellation = req.body.Appellation;
     wine.color = req.body.Colors;
+    wine.year = req.body.Year;
     wine.dealer = req.body.Dealer;
     wine.region = req.body.Region;
     wine.country = req.body.Country;
