@@ -1,7 +1,6 @@
 extends layout
 
 block content
-     
   p #{title}
   table(border='1')
     thead 
@@ -17,7 +16,7 @@ block content
             th Number of Bottles
     tbody
         each item in wines
-            tr(onclick="onWineClick()" onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" )
+            tr( onclick='onRowClick("#{item.id}")' onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" )
                 td #{item.label}
                 td #{item.appellation}
                 td #{item.region}
@@ -27,20 +26,16 @@ block content
                 td #{item.dealer}
                 td #{item.grapeVarieties}
                 td #{item.numberOfBottles}
-                td 
-                 span(style='cursor: pointer;', onclick='onWineClick('+item.label+')')= "UPDATE"
-
                 
   p 
   button(onclick="addNewWine()") New
+  script(type='text/javascript' src='/javascripts/onWineClick.js')
+  
   script.
     function addNewWine() {
         window.location.href = '/wines/add';
     };
-    function onWineClick(item) {
-        window.location.href = '/wines/add';
-    };
-
+   
     var TableBackgroundNormalColor = "#ffffff";
     var TableBackgroundMouseoverColor = "#9999ff";
 
@@ -52,3 +47,5 @@ block content
     function RestoreBackgroundColor(row) {
         row.style.backgroundColor = TableBackgroundNormalColor;
     }
+    
+    
