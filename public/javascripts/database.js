@@ -110,6 +110,13 @@ module.exports = class Database {
         }
       })
   }
+
+  deleteWine(wine) {
+    return this.wine.deleteAll({ where: { id: wine.id } })
+      .then(function () {
+       
+      })
+  }
   getWines() {
     return this.wine.findAll()
       .then(function(winesDb) {
