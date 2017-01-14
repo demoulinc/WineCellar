@@ -7,35 +7,28 @@ var app = require('../app');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    var url_parts = url.parse(req.url, true);
-    if (!url_parts.search || 0 === url_parts.search.length)
-    {
-        res.render('addWines', { title: 'Add new wine', cols: colors });
-    }
-    else 
-    {
-       var query = url_parts.query;
-       if (query.guid) 
-       {
-           function findWineBasedOnGuid(element) {
-                return element.id == query.guid;
+    try {
+        var url_parts = url.parse(req.url, true);
+        var query = url_parts.query;
 
-            };      
-            var app = require('../app');
-           var currentWine = app.wines.find(findWineBasedOnGuid);
-           if (currentWine != null)
-           {
-               res.render('addWines', { title: 'Add new wine', wine : currentWine, cols: colors });  
-           }
-           else 
-           {
-              res.render('addWines', { title: 'Add new wine', cols: colors });
-           }
-           
-       }
+        function findWineBasedOnGuid(element) {
+            return element.id == query.guid;
+        };
+
+        var app = require('../app');
+        var currentWine = app.wines.find(findWineBasedOnGuid);
+        if (currentWine == null)
+        {
+            throw("No wine found for guid : " + query.guid);   
+        }
+
+        res.render('addWines', { title: 'Update wine', wine : currentWine, cols: colors });
     }
-    
-    
+    catch(err) {
+        console.log("unable to update wine " + err);
+        res.redirect('../wines');
+    }
+   
 
 });
 
