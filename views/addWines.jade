@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   form(method='post')
-                | Enter the new wine
+                
                 div
                     | Label  
                     input(type='text', name='Label', value= '#{wine ? wine.label : ""}')
@@ -34,4 +34,4 @@ block content
                     input(type='text', name='Dealer', value= '#{wine ? wine.dealer : ""}')
                           
                 div
-                    input(type="submit", value="Insert")
+                    input(type="submit", value='#{wine ? "Update" : "Insert"}')
