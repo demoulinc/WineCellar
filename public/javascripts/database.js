@@ -91,6 +91,25 @@ module.exports = class Database {
       });
   }
 
+  updateWine(wine) {
+    return this.wine.find({ where: { id: wine.id } })
+      .then(function (foundWine) {
+        // Check if record exists in db
+        if (foundWine) {
+           foundWine.updateAttributes({
+            label: wine.label,
+            appellation: wine.appellation,
+            region: wine.region,
+            country: wine.country,
+            color: wine.color,
+            year: wine.year,
+            numberOfBottles: wine.numberOfBottles,
+            grapeVarieties: wine.grapeVarieties,
+            dealer: wine.dealer
+          })
+        }
+      })
+  }
   getWines() {
     return this.wine.findAll()
       .then(function(winesDb) {
