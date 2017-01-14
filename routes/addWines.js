@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var Wine = require('../public/javascripts/wine');
 var colors = require('../public/javascripts/color');
-   
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-   res.render('addWines', { title: 'Add new wine', cols: colors });
-});
+    res.render('addWines', { title: 'Add new wine', cols: colors });
+ });
 
 router.post('/', function(req, res) {
     
@@ -22,6 +22,7 @@ router.post('/', function(req, res) {
     wine.grapeVarieties = req.body.GrapeVarieties;
     
     var app = require('../app');
+    app.wines.push(wine);
     app.database.addWine(wine);
 
     res.redirect('../wines');

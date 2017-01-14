@@ -19,10 +19,9 @@ module.exports = class Database {
         min: 0,
         idle: 10000
       },
-
      
-      //storage: 'C:\Users\Cédric\Documents\Coding\WineCellar\WineCellar\db\database2.sqlite'
       storage: this.storagePath
+      
     });
 
     this.wine = this.sequelize.define('wine', {

@@ -8,12 +8,16 @@ var database = require('./public/javascripts/database');
 var index = require('./routes/index');
 var wines = require('./routes/wines');
 var addWines = require('./routes/addWines');
+var updateWines = require('./routes/updateWines');
 var app = express();
 
 app.database = new database();
 app.database.initialize();
 app.database.authenticate();
-
+app.database.getWines()
+      .then(function(wines) {
+          app.wines = wines;
+      });
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -29,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/wines', wines);
 app.use('/wines/add', addWines);
+app.use('/wines/update', updateWines);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

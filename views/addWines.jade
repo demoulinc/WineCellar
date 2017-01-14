@@ -6,32 +6,32 @@ block content
                 | Enter the new wine
                 div
                     | Label  
-                    input(type='text', name='Label')
+                    input(type='text', name='Label', value= '#{wine ? wine.label : ""}')
                 div
                     | Appellation  
-                    input(type='text', name='Appellation')
+                    input(type='text', name='Appellation', value= '#{wine ? wine.appellation : ""}')
                 div
                     | Region  
-                    input(type='text', name='Region')
+                    input(type='text', name='Region', value= '#{wine ? wine.region : ""}')
                 div
                     | Country  
-                    input(type='text', name='Country')
+                    input(type='text', name='Country', value= '#{wine ? wine.country : ""}')
                 div
                     each item in cols
-                        input(type='radio', name='Colors', value='#{item.name}')
+                        input(type='radio', name='Colors', value='#{item.name}', checked='#{item.name}'=='#{wine ? wine.color : ""}')
                         | #{item.toString()}  
                 div
                     | Year  
-                    input(type='text', name='Year')
+                    input(type='text', name='Year', value= '#{wine ? wine.year : ""}')
                 div
                     | NumberOfBottles  
-                    input(type='text', name='NumberOfBottles')
+                    input(type='text', name='NumberOfBottles', value= '#{wine ? wine.numberOfBottles : "0"}')
                 div
                     | Grape Varieties  
-                    input(type='text', name='GrapeVarieties')
+                    input(type='text', name='GrapeVarieties', value= '#{wine ? wine.grapeVarieties : ""}')
                 div
                     | Dealer  
-                    input(type='text', name='Dealer')
+                    input(type='text', name='Dealer', value= '#{wine ? wine.dealer : ""}')
                           
                 div
                     input(type="submit", value="Insert")
