@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var wines = require('./routes/wines');
 var addWines = require('./routes/addWines');
 var updateWines = require('./routes/updateWines');
+var deleteWines = require('./routes/deleteWines');
 var app = express();
 
 app.database = new database();
@@ -34,6 +35,7 @@ app.use('/', index);
 app.use('/wines', wines);
 app.use('/wines/add', addWines);
 app.use('/wines/update', updateWines);
+app.use('/wines/delete', deleteWines);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

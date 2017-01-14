@@ -111,11 +111,11 @@ module.exports = class Database {
       })
   }
 
-  deleteWine(wine) {
-    return this.wine.deleteAll({ where: { id: wine.id } })
-      .then(function () {
-       
-      })
+  deleteWine(wineId) {
+      return this.wine.destroy({ where: { id: wineId } })
+        .then(function () {
+          var cdi = 3;
+        })
   }
   getWines() {
     return this.wine.findAll()

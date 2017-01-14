@@ -3,12 +3,6 @@ extends layout
 block content
   h1= title
 
-  button(onclick='onWineDelete("#{wine.id}")') delete
-  script.
-        function onWineDelete(wineId) {
-            window.location.href = "/wines/delete?guid=" + wineId;
-        }; 
-
   form(method='post')
                 
                 div
@@ -43,4 +37,10 @@ block content
                 div
                     input(type="submit", value='#{wine ? "Update" : "Insert"}')  
  
-  
+  if (wine)
+    button(onclick='onWineDelete("#{wine.id}")') delete
+    script.
+            function onWineDelete(wineId) {
+                window.location.href = "/wines/delete?guid=" + wineId;
+            }; 
+    
