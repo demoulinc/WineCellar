@@ -39,8 +39,5 @@ block content
  
   if (wine)
     button(onclick='onWineDelete("#{wine.id}")') delete
-    script.
-            function onWineDelete(wineId) {
-                window.location.href = "/wines/delete?guid=" + wineId;
-            }; 
+    script(type='text/javascript' src='/javascripts/onWineDelete.js')
     
