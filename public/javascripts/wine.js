@@ -1,5 +1,5 @@
 "use strict";
-var Guid = require('Guid');
+var Guid = require('guid');
 
 module.exports = class Wine  {
     constructor() {

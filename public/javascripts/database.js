@@ -1,6 +1,6 @@
 "use strict";
 
-var Sequelize = require('Sequelize');
+var Sequelize = require('sequelize');
 var Wine = require ('./wine');
 
 module.exports = class Database {
@@ -10,9 +10,9 @@ module.exports = class Database {
   
   initialize()
   {
-    this.sequelize = new Sequelize('database', 'username', 'password', {
+    this.sequelize = new Sequelize('WineCellar', 'root', '', {
       host: 'localhost',
-      dialect: 'sqlite',
+      dialect: 'mariadb',
 
       pool: {
         max: 5,
